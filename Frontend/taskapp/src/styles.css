@@ -1,0 +1,193 @@
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: linear-gradient(to bottom right, #f9fafb, #e5e7eb);
+  color: #111827; /* Ensure dark text in light mode */
+  min-height: 100vh;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Dark mode */
+body.dark {
+  background: linear-gradient(to bottom right, #1f2937, #111827);
+  color: #f3f4f6; /* Ensure light text in dark mode */
+}
+
+/* Card container */
+.card {
+  box-sizing: border-box;
+  width: auto;                /* don’t stretch full width */
+  max-width: 700px;           /* column width like Gmail */
+  margin-left: auto;          /* center horizontally */
+  margin-right: auto;         /* center horizontally */
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+
+body.dark .card {
+  background: #1f2937;
+  color: #f3f4f6;
+}
+
+/* Inputs */
+input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  flex: 1;
+  background: white;
+  color: #111827;
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+
+body.dark input {
+  background: #374151;
+  border-color: #4b5563;
+  color: #f3f4f6;
+}
+
+/* Buttons */
+button {
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.2s, color 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.btn-blue {
+  background: #2563eb;
+  color: white;
+}
+
+.btn-blue:hover {
+  background: #1d4ed8;
+}
+
+.btn-green {
+  background: #16a34a;
+  color: white;
+}
+
+.btn-green:hover {
+  background: #15803d;
+}
+
+.btn-red {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-red:hover {
+  background: #b91c1c;
+}
+
+.btn-gray {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btn-gray:hover {
+  background: #d1d5db;
+}
+
+body.dark .btn-gray {
+  background: #4b5563;
+  color: #f9fafb;
+}
+
+/* Todo item styles */
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  margin-top: 0.5rem;
+  background: white;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+body.dark .todo-item {
+  border-color: #4b5563;
+  background: #374151;
+}
+
+/* Hover effect on todos */
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Todo title */
+.todo-title.done {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-out {
+  opacity: 0 !important;
+  transform: translateY(-10px) !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.center-screen {
+  display: flex;
+  justify-content: center;      /* horizontal */
+  align-items: center;          /* vertical */
+  min-height: 100svh;           /* full viewport height (mobile-safe) */
+  padding: 1rem;
+}
+
+.center-screen .card {
+  margin-top: 0;
+}
+
+.top-center {
+  display: flex;
+  justify-content: center;      /* horizontal center */
+  align-items: flex-start;      /* stick to top vertically */
+  min-height: 100svh;           /* ensure align-items has an effect */
+  padding: 1.5rem 1rem;         /* breathing room at top/sides */
+}
+
+.top-center .card {
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 600px) {
+  .card {
+    max-width: 95vw;
+    padding: 1.25rem;
+  }
+}
